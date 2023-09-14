@@ -7619,6 +7619,13 @@ ngx-bootstrap@9.0.0:
   dependencies:
     tslib "^2.3.0"
 
+ngx-c8y-openapi-library@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/ngx-c8y-openapi-library/-/ngx-c8y-openapi-library-0.0.8.tgz#665ae22aa97d0f638f1bf6b10e5c2e98c16e97bb"
+  integrity sha512-I3Nk7qi7vmRedhOIx5IMUJdOv2UyacFQbNM7hxSoI8oZUKaWa9KsTi9jgTHh0BFAh+nMSHEO3pEKGwHcdHy/ww==
+  dependencies:
+    tslib "^2.3.0"
+
 nice-napi@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nice-napi/-/nice-napi-1.0.2.tgz#dc0ab5a1eac20ce548802fc5686eaa6bc654927b"

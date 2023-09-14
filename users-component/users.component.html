@@ -1,1 +1,5 @@
 <c8y-title>Users</c8y-title>
+
+<div *ngFor="let user of (users$ | async)?.users">
+    {{user.id }}
+</div>
