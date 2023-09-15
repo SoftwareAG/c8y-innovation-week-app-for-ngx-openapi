@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from "@angular/core";
 import { CoreModule } from "@c8y/ngx-components";
 import { UsersService } from "c8y-ng-openapi-library";
 import { Router } from "@angular/router";
+import { User } from "c8y-ng-openapi-library/api/models/user";
 
 @Component({
   selector: "c8y-user-detail",
@@ -12,7 +13,7 @@ import { Router } from "@angular/router";
 @Injectable()
 export class UserDetailComponent implements OnInit {
   public href: string = "";
-  user;
+  user: User;
   userId: string;
   usersString: string = "/users/";
   userString: string = "/user";
