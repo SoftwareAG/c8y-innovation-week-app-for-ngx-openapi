@@ -1,8 +1,11 @@
-import { Component, OnInit, Injectable } from "@angular/core";
-import { CoreModule } from "@c8y/ngx-components";
+import { Component, OnInit, Injectable, OnDestroy } from "@angular/core";
+import { AppStateService, CoreModule } from "@c8y/ngx-components";
 import { UsersService } from "c8y-ng-openapi-library";
-import { Router } from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import { User } from "c8y-ng-openapi-library/api/models/user";
+import { takeUntil } from "rxjs/operators";
+import {Subject} from "rxjs";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: "c8y-user-detail",
@@ -11,40 +14,50 @@ import { User } from "c8y-ng-openapi-library/api/models/user";
   imports: [CoreModule],
 })
 @Injectable()
-export class UserDetailComponent implements OnInit {
-  public href: string = "";
+export class UserDetailComponent implements OnInit, OnDestroy {
+  public tenantId: string;
   user: User;
   userId: string;
-  usersString: string = "/users/";
-  userString: string = "/user";
-  phoneNumber: number;
-  constructor(public userService: UsersService, private router: Router) {}
+
+  form = new FormGroup({
+    id: new FormControl(''),
+    phone: new FormControl(''),
+    email: new FormControl(''),
+    lastName:new FormControl(''),
+  })
+
+  destroyed$ = new Subject()
+  constructor(
+      public userService: UsersService,
+      private route: ActivatedRoute,
+      private router: Router,
+      public stateService: AppStateService
+  ) {}
 
   async ngOnInit() {
-    this.userId = this.getUserIdFromUrl(this.router.url);
+    this.tenantId = this.stateService.currentTenant.value.name
 
-    console.log("Hello user detail view");
-    this.user = await this.getUserDetail(this.userId).toPromise();
-  }
-
-  getUserDetail(userId: string) {
-    return this.userService.getUserResource({
-      userId: userId,
-      tenantId: "t56293",
+    this.route.paramMap.pipe(takeUntil(this.destroyed$)).subscribe((params: ParamMap) => {
+      this.userId = params.get('id');
     });
+
+    this.user =  await this.userService.getUserResource({ userId: this.userId, tenantId: this.tenantId}).toPromise();
+    this.form.patchValue(this.user)
+    this.form.get('id').disable()
   }
 
-  getUserIdFromUrl(path) {
-    return path.replace("/users/", "").replace("/user", "");
+  ngOnDestroy() {
+    this.destroyed$.next(true)
   }
 
   updateUser() {
     this.userService.putUserResource({
       userId: this.user.id,
-      tenantId: "t56293",
-      body: {email: this.user.email}
+      tenantId: this.tenantId,
+      body: this.form.value
     }).subscribe(updatedUser => {
       this.user = updatedUser;
+      this.router.navigate(['/', 'users'])
     });
   }
 }

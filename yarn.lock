@@ -3240,10 +3240,10 @@ bytes@3.1.2:
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.2.tgz#8b0beeb98605adf1b128fa4386403c009e0221a5"
   integrity sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==
 
-c8y-ng-openapi-library@0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/c8y-ng-openapi-library/-/c8y-ng-openapi-library-0.0.9.tgz#e5e0c02ceb07a71d2238fd44db99c4bd679675d1"
-  integrity sha512-aEX9CyX2T8gVkfjEEMrgnnArABqjGTaL0Oe2mxoDCIMY+dCAXoPSo5yRCDsrDhRprBLfNftAvQ+Ei1XjfVt9HQ==
+c8y-ng-openapi-library@0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/c8y-ng-openapi-library/-/c8y-ng-openapi-library-0.0.11.tgz#2ae6059ddb29a8362c521a04f5bee08318a7e577"
+  integrity sha512-0diE6e5nLH1ffIw7FVU1Ash2ifQdJJVfYaOKkIXy9n6Z21+IOmLO7St8mgyE9k+owJ7OFMkSt3ggKG3kJBFFFw==
   dependencies:
     tslib "^2.3.0"
 

@@ -1,9 +1,10 @@
 import { Component, OnInit, Injectable } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { BreadcrumbService, CoreModule } from "@c8y/ngx-components";
+import {AppStateService, CoreModule} from "@c8y/ngx-components";
 import { UsersService } from "c8y-ng-openapi-library";
-import { UserCollection } from "c8y-ng-openapi-library/api/models/user-collection";
 import { Observable } from "rxjs";
+import { User } from "c8y-ng-openapi-library/api/models/user";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "c8y-users-component",
@@ -13,18 +14,19 @@ import { Observable } from "rxjs";
 })
 @Injectable()
 export class UsersComponent implements OnInit {
-  public users$: Observable<UserCollection>;
+  public users$: Observable<User[]>;
+  private tenantId: string;
   constructor(
-    public breadcrumbService: BreadcrumbService,
-    public userService: UsersService
+      public stateService: AppStateService,
+      public userService: UsersService
   ) {}
   async ngOnInit() {
     console.log("Hello users");
-
+    this.tenantId = this.stateService.currentTenant.value.name;
     this.users$ = this.getUsers();
   }
 
-  getUsers(): Observable<UserCollection> {
-    return this.userService.getUserCollectionResource({ tenantId: "t56293" });
+  getUsers(): Observable<User[]> {
+    return this.userService.getUserCollectionResource({ tenantId: this.tenantId }).pipe(map(users => users.users));
   }
 }
