@@ -1,8 +1,8 @@
 import { Component, OnInit, Injectable } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { BreadcrumbService, CoreModule } from "@c8y/ngx-components";
-import { UsersService } from "ngx-c8y-openapi-library";
-import { UserCollection } from "ngx-c8y-openapi-library/api/models/user-collection";
+import { UsersService } from "c8y-ng-openapi-library";
+import { UserCollection } from "c8y-ng-openapi-library/api/models/user-collection";
 import { Observable } from "rxjs";
 
 @Component({

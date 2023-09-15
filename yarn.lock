@@ -3240,6 +3240,13 @@ bytes@3.1.2:
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.2.tgz#8b0beeb98605adf1b128fa4386403c009e0221a5"
   integrity sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==
 
+c8y-ng-openapi-library@0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/c8y-ng-openapi-library/-/c8y-ng-openapi-library-0.0.9.tgz#e5e0c02ceb07a71d2238fd44db99c4bd679675d1"
+  integrity sha512-aEX9CyX2T8gVkfjEEMrgnnArABqjGTaL0Oe2mxoDCIMY+dCAXoPSo5yRCDsrDhRprBLfNftAvQ+Ei1XjfVt9HQ==
+  dependencies:
+    tslib "^2.3.0"
+
 cacache@16.0.7:
   version "16.0.7"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-16.0.7.tgz#74a5d9bc4c17b4c0b373c1f5d42dadf5dc06638d"
@@ -7616,13 +7623,6 @@ ngx-bootstrap@9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-9.0.0.tgz#8524958cdd479aefcc9549788694fe08789f2f52"
   integrity sha512-wVwKs1jIASzJrKSPUhOcHY8f39MKyG31SruJdVQ3S/v/PdBVmVuFUJL86Awc8F60di2xD9C4DzzGObkvsHbirw==
-  dependencies:
-    tslib "^2.3.0"
-
-ngx-c8y-openapi-library@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/ngx-c8y-openapi-library/-/ngx-c8y-openapi-library-0.0.8.tgz#665ae22aa97d0f638f1bf6b10e5c2e98c16e97bb"
-  integrity sha512-I3Nk7qi7vmRedhOIx5IMUJdOv2UyacFQbNM7hxSoI8oZUKaWa9KsTi9jgTHh0BFAh+nMSHEO3pEKGwHcdHy/ww==
   dependencies:
     tslib "^2.3.0"
 
