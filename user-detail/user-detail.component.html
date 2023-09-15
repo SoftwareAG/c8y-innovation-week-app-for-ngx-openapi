@@ -1,48 +1,56 @@
-<c8y-title>User {{userId}}</c8y-title>
-<fieldset class="col-lg-6">
-  <div class="legend form-block">User info</div>
-  <div class="form-group">
-    <label for="input1">Name</label>
-    <input
-      [(ngModel)]="userId"
-      type="text"
-      id="input1"
-      class="form-control"
-      placeholder="e.g. 35882"
-    />
-  </div>
-  <div class="form-group">
-    <label for="input2">Surname</label>
-    <input
-      [(ngModel)]="surname"
-      type="text"
-      id="input2"
-      class="form-control"
-      placeholder="e.g. 88194"
-    />
-  </div>
-</fieldset>
+<c8y-title>User {{ userId }}</c8y-title>
+<div *ngIf="user">
+  <fieldset class="col-lg-6">
+    <div class="legend form-block">User info</div>
+    <div class="form-group">
+      <label for="input1">Name</label>
+      <input
+        [(ngModel)]="userId"
+        type="text"
+        id="input1"
+        class="form-control"
+        placeholder="e.g. 35882"
+      />
+    </div>
+    <div class="form-group">
+      <label for="input2">Surname</label>
+      <input
+        [(ngModel)]="surname"
+        type="text"
+        id="input2"
+        class="form-control"
+        placeholder="e.g. 88194"
+      />
+    </div>
+  </fieldset>
 
-<fieldset>
-  <div class="legend form-block">User contact</div>
-  <div class="form-group">
-    <label for="input3">email</label>
-    <input
-      [(ngModel)]="userEmail"
-      type="text"
-      id="input3"
-      class="form-control"
-      placeholder="e.g. 35882"
-    />
+  <fieldset>
+    <div class="legend form-block">User contact</div>
+    <div class="form-group">
+      <label for="input3">email</label>
+      <input
+        [(ngModel)]="user.email"
+        type="text"
+        id="input3"
+        class="form-control"
+        placeholder="e.g. 35882"
+      />
+    </div>
+    <div class="form-group">
+      <label for="input4">phone number</label>
+      <input
+        [(ngModel)]="phoneNumber"
+        type="text"
+        id="input4"
+        class="form-control"
+        placeholder="e.g. 88194"
+      />
+    </div>
+  </fieldset>
+
+  <div>
+    <button type="button" class="btn btn-primary btn-lg" (click)="updateUser()">
+      Save
+    </button>
   </div>
-  <div class="form-group">
-    <label for="input4">phone number</label>
-    <input
-      [(ngModel)]="phoneNumber"
-      type="text"
-      id="input4"
-      class="form-control"
-      placeholder="e.g. 88194"
-    />
-  </div>
-</fieldset>
+</div>
