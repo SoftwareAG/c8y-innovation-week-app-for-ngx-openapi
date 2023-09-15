@@ -1,9 +1,18 @@
 import { NgModule } from '@angular/core';
-import { UsersComponent } from "./users.component";
-import { hookNavigator, hookRoute, NavigatorNode } from '@c8y/ngx-components';
+import { RouterModule, Routes } from '@angular/router';
+import { hookNavigator, hookRoute, NavigatorNode, CoreModule } from '@c8y/ngx-components';
+import { UserDetailComponent } from '../user-detail/user-detail.component';
+
+const routes: Routes = [
+  {
+    path: 'users/:id/user',
+    component: UserDetailComponent,
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
-  imports: [],
+  imports: [RouterModule.forChild(routes), CoreModule],
   exports: [],
   providers: [
     hookRoute({

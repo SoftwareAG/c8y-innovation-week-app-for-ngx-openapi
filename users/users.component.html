@@ -1,0 +1,15 @@
+<c8y-title>Users</c8y-title>
+
+<div class="card-group interact-grid">
+  <div
+    *ngFor="let user of (users$ | async)?.users"
+    class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
+  >
+    <div class="card">
+      <div class="card-header separator">
+        <a [routerLink]="['/users', user.id, 'user']">{{ user.id }}</a>
+      </div>
+      <div class="card-block">{{ user.email }}</div>
+    </div>
+  </div>
+</div>
